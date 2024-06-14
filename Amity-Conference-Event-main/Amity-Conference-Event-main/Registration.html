@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="radio"],
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amity University - Registration</h1>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="associated">Are you currently associated with Amity University?</label>
+            <div>
+                <input type="radio" id="associatedYes" name="associated" value="yes">
+                <label for="associatedYes">Yes</label>
+                <input type="radio" id="associatedNo" name="associated" value="no">
+                <label for="associatedNo">No</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="categoryType">Category Type:</label>
+            <select id="categoryType" name="categoryType">
+                <option value="">-Select Category-</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty/Staff</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="gstStatus">GST Status:</label>
+            <select id="gstStatus" name="gstStatus">
+                <option value="">-Select GST Status-</option>
+                <option value="registered">Registered</option>
+                <option value="unregistered">UnRegistered</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile No.:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+            <label for="institution">Organization/Institution:</label>
+            <input type="text" id="institution" name="institution">
+        </div>
+        <button type="submit">SUBMIT</button>
+    </form>
+    <script>
+        const form = document.getElementById('registrationForm');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            // Add your JavaScript logic to handle form data here
+            // This example simply logs the data to the console
+            const formData = new FormData(form);
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+            // You can use the fetched data to make an AJAX request
+        }
